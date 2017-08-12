@@ -52,6 +52,21 @@ public class NvtTest extends CommonReport {
         Assert.assertEquals(getNvt().getXref(), "URL:http://www.ietf.org/rfc/rfc1323.txt");
     }
 
+    @Test
+    public void getCvssBase() throws JAXBException {
+        Assert.assertEquals(getNvt().getCvssBase(), "2.6");
+    }
+
+    @Test
+    public void getCve() throws JAXBException {
+        Assert.assertEquals(getNvt().getCve(), "NOCVE");
+    }
+
+    @Test
+    public void getBid() throws JAXBException {
+        Assert.assertEquals(getNvt().getBid(), "NOBID");
+    }
+
     private Nvt getNvt() throws JAXBException {
         ScanReport report = getScanReport();
         return report.getReport().getResults().get(0).getNvt();

@@ -12,9 +12,15 @@ public class Nvt {
     @XmlElement
     private String type;
     @XmlElement
-    private String family;
-    @XmlElement
     private String name;
+    @XmlElement
+    private String family;
+    @XmlElement(name = "cvss_base")
+    private String cvssBase;
+    @XmlElement
+    private String cve;
+    @XmlElement
+    private String bid;
     @XmlElement
     private String xref;
     @XmlElement
@@ -28,12 +34,24 @@ public class Nvt {
         return type;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getFamily() {
         return family;
     }
 
-    public String getName() {
-        return name;
+    public String getCvssBase() {
+        return cvssBase;
+    }
+
+    public String getCve() {
+        return cve;
+    }
+
+    public String getBid() {
+        return bid;
     }
 
     public String getXref() {

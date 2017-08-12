@@ -31,6 +31,8 @@ public class Result {
     private String threat;
     @XmlElement
     private double severity;
+    @XmlElement
+    private Qod qod;
     @XmlElement(name = "original_threat")
     private String originalThreat;
     @XmlElement(name = "original_severity")
@@ -94,6 +96,10 @@ public class Result {
 
     public double getSeverity() {
         return severity;
+    }
+
+    public Qod getQod() {
+        return qod;
     }
 
     public String getOriginalThreat() {

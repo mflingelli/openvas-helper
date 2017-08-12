@@ -26,9 +26,13 @@ public class Report {
     @XmlElement
     private Task task;
     @XmlElement
+    private Scan scan;
+    @XmlElement
     private Date timestamp;
     @XmlElement(name = "scan_start")
     private Date scanStart;
+    @XmlElement
+    private Ports ports;
     @XmlElement(name = "scan_end")
     private Date scanEnd;
     @XmlElement(name = "result_count")
@@ -122,6 +126,10 @@ public class Report {
         return task;
     }
 
+    public Scan getScan() {
+        return scan;
+    }
+
     public Date getTimestamp() {
         return timestamp;
     }
@@ -144,6 +152,10 @@ public class Report {
 
     public String getTimezoneAbbrev() {
         return timezoneAbbrev;
+    }
+
+    public Ports getPorts() {
+        return ports;
     }
 
     public Severity getSeverity() {
