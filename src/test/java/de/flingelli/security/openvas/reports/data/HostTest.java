@@ -32,6 +32,12 @@ public class HostTest extends CommonReport {
         Assert.assertEquals(getHost().getDetails().size(), 1181);
     }
 
+    @Test
+    public void getName() throws JAXBException {
+        Assert.assertEquals(getScanReport().getReport().getErrors().getErrors().get(0).getHost().getName(),
+                "172.26.110.136");
+    }
+
     private Host getHost() throws JAXBException {
         return getScanReport().getReport().getHost();
     }

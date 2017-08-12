@@ -41,6 +41,8 @@ public class Task {
     private String status;
     @XmlElement
     private int progress;
+    @XmlElement(name = "report_count")
+    private ReportCount reportCount;
     @XmlElement
     private String trend;
     @XmlElement
@@ -123,6 +125,10 @@ public class Task {
 
     public int getProgress() {
         return progress;
+    }
+
+    public ReportCount getReportCount() {
+        return reportCount;
     }
 
     public UserTags getUserTags() {

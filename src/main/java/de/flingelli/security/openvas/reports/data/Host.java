@@ -1,13 +1,15 @@
 package de.flingelli.security.openvas.reports.data;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Host {
+    @XmlElementRef(name = "host", type = Host.class)
+    @XmlMixed
+    private List<String> mixedContent;
     @XmlElement
     private String ip;
     @XmlElement
@@ -18,6 +20,13 @@ public class Host {
     private Date end;
     @XmlElement(name = "detail")
     private List<Detail> details;
+
+    public String getName() {
+        if (!mixedContent.isEmpty()) {
+            return mixedContent.get(0).trim();
+        }
+        return "";
+    }
 
     public String getIp() {
         return ip;

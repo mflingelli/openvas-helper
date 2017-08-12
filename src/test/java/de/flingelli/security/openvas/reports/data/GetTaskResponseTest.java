@@ -22,4 +22,9 @@ public class GetTaskResponseTest extends CommonReport {
         Assert.assertEquals(getTasksReport().getApplyOverrides(), 0);
     }
 
+    @Test
+    public void getSort() throws JAXBException {
+        Assert.assertEquals(getTasksReport().getSort().getField().getName(), "name");
+    }
+
 }

@@ -20,7 +20,11 @@ public class GetTaskResponse {
     @XmlElement
     private Filters filters;
     @XmlElement
+    private Sort sort;
+    @XmlElement
     private Tasks tasks;
+    @XmlElement(name = "task_count")
+    private TaskCount taskCount;
 
     public String getStatusText() {
         return statusText;
@@ -50,6 +54,14 @@ public class GetTaskResponse {
         return task;
     }
 
+    public Sort getSort() {
+        return sort;
+    }
+
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
     public void setTask(Task task) {
         this.task = task;
     }
@@ -70,6 +82,14 @@ public class GetTaskResponse {
         this.filters = filters;
     }
 
+    public TaskCount getTaskCount() {
+        return taskCount;
+    }
+
+    public void setTaskCount(TaskCount taskCount) {
+        this.taskCount = taskCount;
+    }
+
     public void readXML(String fileName) throws JAXBException {
         JAXBContext context = JAXBContext.newInstance(GetTaskResponse.class);
         Unmarshaller um = context.createUnmarshaller();
@@ -78,8 +98,10 @@ public class GetTaskResponse {
         setStatus(report.getStatus());
         setStatusText(report.getStatusText());
         setTask(report.getTask());
+        setSort(report.getSort());
         setTasks(report.getTasks());
         setFilters(report.getFilters());
+        setTaskCount(report.getTaskCount());
     }
 
 }

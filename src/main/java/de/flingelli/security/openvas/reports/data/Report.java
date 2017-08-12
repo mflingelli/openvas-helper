@@ -11,6 +11,8 @@ public class Report {
     @XmlElement
     private Omp omp;
     @XmlElement
+    private Sort sort;
+    @XmlElement
     private Filters filters;
     @XmlElement(name = "severity_class")
     private SeverityClass severityClass;
@@ -27,6 +29,10 @@ public class Report {
     private Date timestamp;
     @XmlElement(name = "scan_start")
     private Date scanStart;
+    @XmlElement(name = "scan_end")
+    private Date scanEnd;
+    @XmlElement(name = "result_count")
+    private ResultCount resultCount;
     @XmlElement
     private CountContainer hosts;
     @XmlElement(name = "closed_cves")
@@ -62,6 +68,10 @@ public class Report {
 
     public Omp getOmp() {
         return omp;
+    }
+
+    public Sort getSort() {
+        return sort;
     }
 
     public Filters getFilters() {
@@ -118,6 +128,14 @@ public class Report {
 
     public Date getScanStart() {
         return scanStart;
+    }
+
+    public Date getScanEnd() {
+        return scanEnd;
+    }
+
+    public ResultCount getResultCount() {
+        return resultCount;
     }
 
     public String getTimezone() {

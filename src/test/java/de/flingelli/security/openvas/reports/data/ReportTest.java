@@ -121,6 +121,12 @@ public class ReportTest extends CommonReport {
         Assert.assertNull(getScanReport().getReport().getReportFormat());
     }
 
+    @Test
+    public void getScanEnd() throws JAXBException {
+        Assert.assertEquals(getFormattedDate(getTasksReport().getTask().getFirstReport().getReport().getScanEnd()),
+                "06082017 050952");
+    }
+
     private Task getTask() throws JAXBException {
         return getScanReport().getReport().getTask();
     }
