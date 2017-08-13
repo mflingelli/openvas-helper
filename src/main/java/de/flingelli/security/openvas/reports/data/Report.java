@@ -57,6 +57,10 @@ public class Report {
     private Severity severity;
     @XmlElement
     private Host host;
+    @XmlElement(name = "host_start")
+    private HostStart hostStart;
+    @XmlElement(name = "host_end")
+    private HostEnd hostEnd;
     @XmlElement
     private Errors errors;
     @XmlElement(name = "report_forma")
@@ -164,6 +168,14 @@ public class Report {
 
     public Host getHost() {
         return host;
+    }
+
+    public HostStart getHostStart() {
+        return hostStart;
+    }
+
+    public HostEnd getHostEnd() {
+        return hostEnd;
     }
 
     public Errors getErrors() {
