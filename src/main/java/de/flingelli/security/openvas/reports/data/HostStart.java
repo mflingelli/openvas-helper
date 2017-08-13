@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -19,6 +20,7 @@ public class HostStart {
     public Date getDate() throws ParseException {
         if (!mixedContent.isEmpty()) {
             try {
+                PARSER.setTimeZone(TimeZone.getTimeZone("CET"));
                 return PARSER.parse(mixedContent.get(0).trim());
             } catch (ParseException e) {
                 throw e;
