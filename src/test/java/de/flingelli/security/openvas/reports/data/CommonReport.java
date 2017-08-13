@@ -1,18 +1,17 @@
 package de.flingelli.security.openvas.reports.data;
 
-import de.flingelli.security.openvas.reports.data.GetTaskResponse;
-import de.flingelli.security.openvas.reports.data.ScanReport;
-
 import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class CommonReport {
-    private SimpleDateFormat format = new SimpleDateFormat("ddMMyyy HHmmss");
+    private final SimpleDateFormat format;
 
-    public SimpleDateFormat getSimpleDateFormat() {
-        return format;
+    public CommonReport() {
+        format = new SimpleDateFormat("ddMMyyy HHmmss");
+        format.setTimeZone(TimeZone.getTimeZone("CET"));
     }
 
     public String getFormattedDate(Date date) {
